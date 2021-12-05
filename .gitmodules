@@ -1,0 +1,3 @@
+[submodule "pages_draft"]
+	path = pages_draft
+	url = https://github.com/dnasdw/pages_draft.git
