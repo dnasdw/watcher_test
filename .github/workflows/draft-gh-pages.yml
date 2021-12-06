@@ -35,16 +35,16 @@ jobs:
           fetch-depth: 0
 
       - name: Get full commit message like peaceiris/actions-gh-pages@v3
+        working-directory: ./pages_draft
         run: |
-            pushd pages_draft
             printf -v FULL_COMMIT_MESSAGE %s "$(git log -1 --pretty=format:%B) dnasdw/pages_draft@$(git log -1 --pretty=format:%H)"
             echo "$FULL_COMMIT_MESSAGE"
             echo "FULL_COMMIT_MESSAGE<<EOF" >> $GITHUB_ENV
             echo "$FULL_COMMIT_MESSAGE" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
-            popd
 
       - name: Disable quotePath
+        working-directory: ./pages_draft
         run: git config core.quotePath false
 
       - name: Setup Hugo
